@@ -7,6 +7,7 @@ const morgan = require("morgan");
 
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
+const postRoute = require("./routes/posts");
 
 const database = module.exports = () => {
     const connectionParams = {
@@ -30,7 +31,8 @@ app.use(helmet());
 app.use(morgan());
 
 app.use("/api/users", userRoute);
-app.use("/api/auth", authRoute)
+app.use("/api/auth", authRoute);
+app.use("/api/posts", postRoute);
 
 app.listen(8800, () => {
     console.log("Connected to the server")
